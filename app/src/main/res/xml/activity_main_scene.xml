@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <Transition
+        app:constraintSetEnd="@+id/stage1"
+        app:constraintSetStart="@+id/initial"
+        app:duration="@integer/navbar_motion_duration" />
+
+    <ConstraintSet android:id="@+id/initial">
+        <Constraint
+            android:id="@+id/bgImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/circle_bg"
+            android:elevation="2dp"
+            app:layout_constraintBottom_toBottomOf="@id/refView"
+            app:layout_constraintEnd_toEndOf="@id/txt1"
+            app:layout_constraintStart_toStartOf="@id/txt1"
+            app:layout_constraintTop_toTopOf="@id/refView" />
+
+        <Constraint
+            android:id="@+id/img1"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:elevation="2dp"
+            app:layout_constraintBottom_toBottomOf="@id/refView"
+            app:layout_constraintEnd_toEndOf="@id/txt1"
+            app:layout_constraintStart_toStartOf="@id/txt1"
+            app:layout_constraintTop_toTopOf="@id/refView"
+            app:srcCompat="@drawable/ic_image1">
+            <CustomAttribute
+                app:attributeName="colorFilter"
+                app:customColorValue="@color/white" />
+            <Transform android:rotationY="200" />
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/img2"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginBottom="4dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:elevation="2dp"
+            app:layout_constraintBottom_toTopOf="@id/txt2"
+            app:layout_constraintEnd_toEndOf="@id/txt2"
+            app:layout_constraintStart_toStartOf="@id/txt2"
+            app:srcCompat="@drawable/ic_image2">
+            <CustomAttribute
+                app:attributeName="colorFilter"
+                app:customColorValue="@color/black" />
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/img3"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginBottom="4dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:elevation="2dp"
+            app:layout_constraintBottom_toTopOf="@id/txt3"
+            app:layout_constraintEnd_toEndOf="@id/txt3"
+            app:layout_constraintStart_toStartOf="@id/txt3"
+            app:srcCompat="@drawable/ic_image3">
+            <CustomAttribute
+                app:attributeName="colorFilter"
+                app:customColorValue="@color/black" />
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/img4"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginBottom="4dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:elevation="2dp"
+            app:layout_constraintBottom_toTopOf="@id/txt4"
+            app:layout_constraintEnd_toEndOf="@id/txt4"
+            app:layout_constraintStart_toStartOf="@id/txt4"
+            app:srcCompat="@drawable/ic_image4">
+            <CustomAttribute
+                app:attributeName="colorFilter"
+                app:customColorValue="@color/black" />
+        </Constraint>
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/stage1">
+        <Constraint
+            android:id="@+id/bgImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/circle_bg"
+            android:elevation="2dp"
+            app:layout_constraintBottom_toBottomOf="@id/refView"
+            app:layout_constraintEnd_toEndOf="@id/txt2"
+            app:layout_constraintStart_toStartOf="@id/txt2"
+            app:layout_constraintTop_toTopOf="@id/refView" />
+
+        <Constraint
+            android:id="@+id/img1"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginBottom="4dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:elevation="2dp"
+            app:layout_constraintBottom_toTopOf="@id/txt1"
+            app:layout_constraintEnd_toEndOf="@id/txt1"
+            app:layout_constraintStart_toStartOf="@id/txt1"
+            app:srcCompat="@drawable/ic_image1">
+            <CustomAttribute
+                app:attributeName="colorFilter"
+                app:customColorValue="@color/black" />
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/img2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:elevation="2dp"
+            app:layout_constraintBottom_toBottomOf="@id/refView"
+            app:layout_constraintEnd_toEndOf="@id/txt2"
+            app:layout_constraintStart_toStartOf="@id/txt2"
+            app:layout_constraintTop_toTopOf="@id/refView"
+            app:srcCompat="@drawable/ic_image2">
+            <CustomAttribute
+                app:attributeName="colorFilter"
+                app:customColorValue="@color/white" />
+            <Transform android:rotationY="200" />
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/img3"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginBottom="4dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:elevation="2dp"
+            app:layout_constraintBottom_toTopOf="@id/txt3"
+            app:layout_constraintEnd_toEndOf="@id/txt3"
+            app:layout_constraintStart_toStartOf="@id/txt3"
+            app:srcCompat="@drawable/ic_image3">
+            <CustomAttribute
+                app:attributeName="colorFilter"
+                app:customColorValue="@color/black" />
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/img4"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginBottom="4dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:elevation="2dp"
+            app:layout_constraintBottom_toTopOf="@id/txt4"
+            app:layout_constraintEnd_toEndOf="@id/txt4"
+            app:layout_constraintStart_toStartOf="@id/txt4"
+            app:srcCompat="@drawable/ic_image4">
+            <CustomAttribute
+                app:attributeName="colorFilter"
+                app:customColorValue="@color/black" />
+        </Constraint>
+    </ConstraintSet>
+
+    <Transition
+        app:constraintSetEnd="@+id/stage2"
+        app:constraintSetStart="@+id/stage1"
+        app:duration="@integer/navbar_motion_duration" />
+
+    <ConstraintSet android:id="@+id/stage2">
+        <Constraint
+            android:id="@+id/bgImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/circle_bg"
+            android:elevation="2dp"
+            app:layout_constraintBottom_toBottomOf="@id/refView"
+            app:layout_constraintEnd_toEndOf="@id/txt3"
+            app:layout_constraintStart_toStartOf="@id/txt3"
+            app:layout_constraintTop_toTopOf="@id/refView" />
+
+        <Constraint
+            android:id="@+id/img1"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginBottom="4dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:elevation="2dp"
+            app:layout_constraintBottom_toTopOf="@id/txt1"
+            app:layout_constraintEnd_toEndOf="@id/txt1"
+            app:layout_constraintStart_toStartOf="@id/txt1"
+            app:srcCompat="@drawable/ic_image1">
+            <CustomAttribute
+                app:attributeName="colorFilter"
+                app:customColorValue="@color/black" />
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/img2"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginBottom="4dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:elevation="2dp"
+            app:attributeName="colorFilter"
+            app:layout_constraintBottom_toTopOf="@id/txt2"
+            app:layout_constraintEnd_toEndOf="@id/txt2"
+            app:layout_constraintStart_toStartOf="@id/txt2"
+            app:srcCompat="@drawable/ic_image2">
+            <CustomAttribute
+                app:attributeName="colorFilter"
+                app:customColorValue="@color/black" />
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/img3"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:elevation="2dp"
+            app:attributeName="colorFilter"
+            app:layout_constraintBottom_toBottomOf="@id/refView"
+            app:layout_constraintEnd_toEndOf="@id/txt3"
+            app:layout_constraintStart_toStartOf="@id/txt3"
+            app:layout_constraintTop_toTopOf="@id/refView"
+            app:srcCompat="@drawable/ic_image3">
+            <CustomAttribute
+                app:attributeName="colorFilter"
+                app:customColorValue="@color/white" />
+            <Transform android:rotationY="200" />
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/img4"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginBottom="4dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:elevation="2dp"
+            app:attributeName="colorFilter"
+            app:customColorValue="@color/white"
+            app:layout_constraintBottom_toTopOf="@id/txt4"
+            app:layout_constraintEnd_toEndOf="@id/txt4"
+            app:layout_constraintStart_toStartOf="@id/txt4"
+            app:srcCompat="@drawable/ic_image4">
+            <CustomAttribute
+                app:attributeName="colorFilter"
+                app:customColorValue="@color/black" />
+        </Constraint>
+    </ConstraintSet>
+
+    <Transition
+        app:constraintSetEnd="@+id/stage3"
+        app:constraintSetStart="@+id/stage2"
+        app:duration="@integer/navbar_motion_duration" />
+
+    <ConstraintSet android:id="@+id/stage3">
+        <Constraint
+            android:id="@+id/bgImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/circle_bg"
+            android:elevation="2dp"
+            app:layout_constraintBottom_toBottomOf="@id/refView"
+            app:layout_constraintEnd_toEndOf="@id/txt4"
+            app:layout_constraintStart_toStartOf="@id/txt4"
+            app:layout_constraintTop_toTopOf="@id/refView" />
+
+        <Constraint
+            android:id="@+id/img1"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginBottom="4dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:elevation="2dp"
+            app:layout_constraintBottom_toTopOf="@id/txt1"
+            app:layout_constraintEnd_toEndOf="@id/txt1"
+            app:layout_constraintStart_toStartOf="@id/txt1"
+            app:srcCompat="@drawable/ic_image1">
+            <CustomAttribute
+                app:attributeName="colorFilter"
+                app:customColorValue="@color/black" />
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/img2"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginBottom="4dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:elevation="2dp"
+            app:attributeName="colorFilter"
+            app:layout_constraintBottom_toTopOf="@id/txt2"
+            app:layout_constraintEnd_toEndOf="@id/txt2"
+            app:layout_constraintStart_toStartOf="@id/txt2"
+            app:srcCompat="@drawable/ic_image2">
+            <CustomAttribute
+                app:attributeName="colorFilter"
+                app:customColorValue="@color/black" />
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/img3"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginBottom="4dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:elevation="2dp"
+            app:attributeName="colorFilter"
+            app:layout_constraintBottom_toTopOf="@id/txt3"
+            app:layout_constraintEnd_toEndOf="@id/txt3"
+            app:layout_constraintStart_toStartOf="@id/txt3"
+            app:srcCompat="@drawable/ic_image3">
+            <CustomAttribute
+                app:attributeName="colorFilter"
+                app:customColorValue="@color/black" />
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/img4"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="4dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:elevation="2dp"
+            app:attributeName="colorFilter"
+            app:customColorValue="@color/white"
+            app:layout_constraintBottom_toBottomOf="@id/refView"
+            app:layout_constraintEnd_toEndOf="@id/txt4"
+            app:layout_constraintStart_toStartOf="@id/txt4"
+            app:layout_constraintTop_toTopOf="@id/refView"
+            app:srcCompat="@drawable/ic_image4">
+            <CustomAttribute
+                app:attributeName="colorFilter"
+                app:customColorValue="@color/white" />
+            <Transform android:rotationY="200" />
+        </Constraint>
+    </ConstraintSet>
+</MotionScene>

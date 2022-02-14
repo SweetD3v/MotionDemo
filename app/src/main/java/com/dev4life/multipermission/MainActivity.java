@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
                                 }
                             }
                             if (permissionsList.size() > 0) {
+                                //Some permissions are denied and can be asked again.
                                 askForPermissions(permissionsList);
                             } else if (permissionsCount > 0) {
                                 //Show alert dialog
@@ -89,7 +90,11 @@ public class MainActivity extends AppCompatActivity {
         if (newPermissionStr.length > 0) {
             binding.txtStatus.setText("Asking for permissions");
             permissionsLauncher.launch(newPermissionStr);
-        } else showPermissionDialog();
+        } else {
+            /* User has pressed 'Deny & Don't ask again' so we have to show the enable permissions dialog
+            which will lead them to app details page to enable permissions from there. */
+            showPermissionDialog();
+        }
     }
 
     @Override
@@ -101,6 +106,22 @@ public class MainActivity extends AppCompatActivity {
         permissionsList = new ArrayList<>();
         permissionsList.addAll(Arrays.asList(permissionsStr));
         askForPermissions(permissionsList);
+
+        binding.view1.setOnClickListener(v -> {
+            binding.motionLayout.transitionToState(R.id.initial);
+        });
+
+        binding.view2.setOnClickListener(v -> {
+            binding.motionLayout.transitionToState(R.id.stage1);
+        });
+
+        binding.view3.setOnClickListener(v -> {
+            binding.motionLayout.transitionToState(R.id.stage2);
+        });
+
+        binding.view4.setOnClickListener(v -> {
+            binding.motionLayout.transitionToState(R.id.stage3);
+        });
     }
 
     @Override

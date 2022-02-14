@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,15 +8,172 @@
 
     <TextView
         android:id="@+id/txtStatus"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="monospace"
+        android:gravity="center"
+        android:padding="16dp"
         android:text="Asking for permissions"
         android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textStyle="bold" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.motion.widget.MotionLayout
+            android:id="@+id/motionLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutDescription="@xml/activity_main_scene"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <View
+                android:id="@+id/refView"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginBottom="56dp"
+                android:background="@drawable/top_shadow"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <ImageView
+                android:id="@+id/bgImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/circle_bg"
+                android:elevation="2dp"
+                android:padding="30dp"
+                app:layout_constraintBottom_toBottomOf="@id/refView"
+                app:layout_constraintEnd_toEndOf="@id/txt1"
+                app:layout_constraintStart_toStartOf="@id/txt1"
+                app:layout_constraintTop_toTopOf="@id/refView" />
+
+            <View
+                android:id="@+id/view1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="?selectableItemBackgroundBorderless"
+                app:layout_constraintBottom_toBottomOf="@id/txt1"
+                app:layout_constraintEnd_toEndOf="@id/txt1"
+                app:layout_constraintStart_toStartOf="@id/txt1"
+                app:layout_constraintTop_toTopOf="@id/img1" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img1"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:elevation="2dp"
+                app:layout_constraintBottom_toBottomOf="@id/refView"
+                app:layout_constraintEnd_toEndOf="@id/txt1"
+                app:layout_constraintStart_toStartOf="@id/txt1"
+                app:layout_constraintTop_toTopOf="@id/refView"
+                app:srcCompat="@drawable/ic_image1"
+                app:tint="@color/white" />
+
+            <TextView
+                android:id="@+id/txt1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:text="text1"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/txt2"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="?selectableItemBackgroundBorderless"
+                app:layout_constraintBottom_toBottomOf="@id/txt2"
+                app:layout_constraintEnd_toEndOf="@id/txt2"
+                app:layout_constraintStart_toStartOf="@id/txt2"
+                app:layout_constraintTop_toTopOf="@id/img2" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@id/txt2"
+                app:layout_constraintEnd_toEndOf="@id/txt2"
+                app:layout_constraintStart_toStartOf="@id/txt2"
+                app:srcCompat="@drawable/ic_image2" />
+
+            <TextView
+                android:id="@+id/txt2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:text="text2"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/txt3"
+                app:layout_constraintStart_toEndOf="@id/txt1" />
+
+            <View
+                android:id="@+id/view3"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="?selectableItemBackgroundBorderless"
+                app:layout_constraintBottom_toBottomOf="@id/txt3"
+                app:layout_constraintEnd_toEndOf="@id/txt3"
+                app:layout_constraintStart_toStartOf="@id/txt3"
+                app:layout_constraintTop_toTopOf="@id/img3" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@id/txt3"
+                app:layout_constraintEnd_toEndOf="@id/txt3"
+                app:layout_constraintStart_toStartOf="@id/txt3"
+                app:srcCompat="@drawable/ic_image3" />
+
+            <TextView
+                android:id="@+id/txt3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:text="text3"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/txt4"
+                app:layout_constraintStart_toEndOf="@id/txt2" />
+
+            <View
+                android:id="@+id/view4"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="?selectableItemBackgroundBorderless"
+                app:layout_constraintBottom_toBottomOf="@id/txt4"
+                app:layout_constraintEnd_toEndOf="@id/txt4"
+                app:layout_constraintStart_toStartOf="@id/txt4"
+                app:layout_constraintTop_toTopOf="@id/img4" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@id/txt4"
+                app:layout_constraintEnd_toEndOf="@id/txt4"
+                app:layout_constraintStart_toStartOf="@id/txt4"
+                app:srcCompat="@drawable/ic_image4" />
+
+            <TextView
+                android:id="@+id/txt4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:text="text4"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/txt3" />
+        </androidx.constraintlayout.motion.widget.MotionLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
