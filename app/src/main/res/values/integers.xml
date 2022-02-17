@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <integer name="navbar_motion_duration">150</integer>
+    <integer name="navbar_motion_duration">200</integer>
 </resources>

@@ -1,10 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
 <MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        app:duration="@integer/navbar_motion_duration"
+        app:motionInterpolator="easeInOut">
+        <KeyFrameSet>
+            <KeyAttribute
+                android:scaleX="1.0"
+                android:scaleY="0.4"
+                app:framePosition="20"
+                app:motionTarget="@id/bgImage" />
+            <KeyAttribute
+                android:scaleX="1.0"
+                android:scaleY="0.2"
+                app:framePosition="40"
+                app:motionTarget="@id/bgImage" />
+            <KeyAttribute
+                android:scaleX="1.0"
+                android:scaleY="0.3"
+                app:framePosition="60"
+                app:motionTarget="@id/bgImage" />
+            <KeyAttribute
+                android:scaleX="1.0"
+                android:scaleY="0.6"
+                app:framePosition="80"
+                app:motionTarget="@id/bgImage" />
+            <KeyAttribute
+                android:scaleX="1.0"
+                android:scaleY="1.0"
+                app:framePosition="100"
+                app:motionTarget="@id/bgImage" />
+        </KeyFrameSet>
+    </Transition>
+
     <Transition
         app:constraintSetEnd="@+id/stage1"
-        app:constraintSetStart="@+id/initial"
-        app:duration="@integer/navbar_motion_duration" />
+        app:constraintSetStart="@+id/initial">
+        <KeyFrameSet>
+            <KeyAttribute
+                android:scaleX="1.0"
+                android:scaleY="0.4"
+                app:framePosition="20"
+                app:motionTarget="@id/bgImage" />
+            <KeyAttribute
+                android:scaleX="1.0"
+                android:scaleY="0.2"
+                app:framePosition="40"
+                app:motionTarget="@id/bgImage" />
+            <KeyAttribute
+                android:scaleX="1.0"
+                android:scaleY="0.3"
+                app:framePosition="60"
+                app:motionTarget="@id/bgImage" />
+            <KeyAttribute
+                android:scaleX="1.0"
+                android:scaleY="0.6"
+                app:framePosition="80"
+                app:motionTarget="@id/bgImage" />
+            <KeyAttribute
+                android:scaleX="1.0"
+                android:scaleY="1.0"
+                app:framePosition="100"
+                app:motionTarget="@id/bgImage" />
+        </KeyFrameSet>
+    </Transition>
+    <Transition
+        app:constraintSetEnd="@+id/stage2"
+        app:constraintSetStart="@+id/stage1">
+        <KeyFrameSet>
+            <KeyAttribute
+                android:scaleX="1.0"
+                android:scaleY="0.4"
+                app:framePosition="20"
+                app:motionTarget="@id/bgImage" />
+            <KeyAttribute
+                android:scaleX="1.0"
+                android:scaleY="0.2"
+                app:framePosition="40"
+                app:motionTarget="@id/bgImage" />
+            <KeyAttribute
+                android:scaleX="1.0"
+                android:scaleY="0.3"
+                app:framePosition="60"
+                app:motionTarget="@id/bgImage" />
+            <KeyAttribute
+                android:scaleX="1.0"
+                android:scaleY="0.6"
+                app:framePosition="80"
+                app:motionTarget="@id/bgImage" />
+            <KeyAttribute
+                android:scaleX="1.0"
+                android:scaleY="1.0"
+                app:framePosition="100"
+                app:motionTarget="@id/bgImage" />
+        </KeyFrameSet>
+    </Transition>
+    <Transition
+        app:constraintSetEnd="@+id/stage3"
+        app:constraintSetStart="@+id/stage2">
+        <KeyFrameSet>
+            <KeyAttribute
+                android:scaleX="1.0"
+                android:scaleY="0.3"
+                app:framePosition="30"
+                app:motionTarget="@id/bgImage" />
+            <KeyAttribute
+                android:scaleX="1.0"
+                android:scaleY="0.6"
+                app:framePosition="60"
+                app:motionTarget="@id/bgImage" />
+            <KeyAttribute
+                android:scaleX="0.6"
+                android:scaleY="1.0"
+                app:framePosition="80"
+                app:motionTarget="@id/bgImage" />
+            <KeyAttribute
+                android:scaleX="1.0"
+                android:scaleY="1.0"
+                app:framePosition="100"
+                app:motionTarget="@id/bgImage" />
+        </KeyFrameSet>
+    </Transition>
 
     <ConstraintSet android:id="@+id/initial">
         <Constraint
@@ -162,11 +279,6 @@
         </Constraint>
     </ConstraintSet>
 
-    <Transition
-        app:constraintSetEnd="@+id/stage2"
-        app:constraintSetStart="@+id/stage1"
-        app:duration="@integer/navbar_motion_duration" />
-
     <ConstraintSet android:id="@+id/stage2">
         <Constraint
             android:id="@+id/bgImage"
@@ -248,11 +360,6 @@
                 app:customColorValue="@color/black" />
         </Constraint>
     </ConstraintSet>
-
-    <Transition
-        app:constraintSetEnd="@+id/stage3"
-        app:constraintSetStart="@+id/stage2"
-        app:duration="@integer/navbar_motion_duration" />
 
     <ConstraintSet android:id="@+id/stage3">
         <Constraint

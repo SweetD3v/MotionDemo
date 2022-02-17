@@ -108,19 +108,23 @@ public class MainActivity extends AppCompatActivity {
         askForPermissions(permissionsList);
 
         binding.view1.setOnClickListener(v -> {
-            binding.motionLayout.transitionToState(R.id.initial);
+            binding.motionLayout.transitionToState(R.id.initial,
+                    getResources().getInteger(R.integer.navbar_motion_duration));
         });
 
         binding.view2.setOnClickListener(v -> {
-            binding.motionLayout.transitionToState(R.id.stage1);
+            binding.motionLayout.transitionToState(R.id.stage1,
+                    getResources().getInteger(R.integer.navbar_motion_duration));
         });
 
         binding.view3.setOnClickListener(v -> {
-            binding.motionLayout.transitionToState(R.id.stage2);
+            binding.motionLayout.transitionToState(R.id.stage2,
+                    getResources().getInteger(R.integer.navbar_motion_duration));
         });
 
         binding.view4.setOnClickListener(v -> {
-            binding.motionLayout.transitionToState(R.id.stage3);
+            binding.motionLayout.transitionToState(R.id.stage3,
+                    getResources().getInteger(R.integer.navbar_motion_duration));
         });
     }
 
