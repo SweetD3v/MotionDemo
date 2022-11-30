@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="colorShadowLight" format="color" />
+    <attr name="colorShadowDark" format="color" />
+
+    <attr name="neumorph_backgroundColor" format="color" />
+    <attr name="neumorph_strokeColor" format="color" />
+    <attr name="neumorph_strokeWidth" format="dimension" />
+    <attr name="neumorph_lightSource" format="enum">
+        <enum name="leftTop" value="0" />
+        <enum name="leftBottom" value="1" />
+        <enum name="rightTop" value="2" />
+        <enum name="rightBottom" value="3" />
+    </attr>
+    <attr name="neumorph_shapeType" format="enum">
+        <enum name="flat" value="0" />
+        <enum name="pressed" value="1" />
+        <enum name="basin" value="2" />
+    </attr>
+    <attr name="neumorph_inset" format="dimension" />
+    <attr name="neumorph_insetStart" format="dimension" />
+    <attr name="neumorph_insetEnd" format="dimension" />
+    <attr name="neumorph_insetTop" format="dimension" />
+    <attr name="neumorph_insetBottom" format="dimension" />
+    <attr name="neumorph_shadowElevation" format="dimension" />
+    <attr name="neumorph_shadowColorLight" format="color" />
+    <attr name="neumorph_shadowColorDark" format="color" />
+    <attr name="neumorph_shapeAppearance" format="reference" />
+
+    <attr name="neumorphButtonStyle" format="reference" />
+    <declare-styleable name="NeumorphButton">
+        <attr name="neumorph_backgroundColor" />
+        <attr name="neumorph_strokeColor" />
+        <attr name="neumorph_strokeWidth" />
+        <attr name="neumorph_lightSource" />
+        <attr name="neumorph_shapeType" />
+        <attr name="neumorph_inset" />
+        <attr name="neumorph_insetStart" />
+        <attr name="neumorph_insetEnd" />
+        <attr name="neumorph_insetTop" />
+        <attr name="neumorph_insetBottom" />
+        <attr name="neumorph_shadowElevation" />
+        <attr name="neumorph_shadowColorLight" />
+        <attr name="neumorph_shadowColorDark" />
+        <attr name="neumorph_shapeAppearance" />
+    </declare-styleable>
+
+    <attr name="neumorphCardViewStyle" format="reference" />
+    <declare-styleable name="NeumorphCardView">
+        <attr name="neumorph_backgroundColor" />
+        <attr name="neumorph_strokeColor" />
+        <attr name="neumorph_strokeWidth" />
+        <attr name="neumorph_lightSource" />
+        <attr name="neumorph_shapeType" />
+        <attr name="neumorph_inset" />
+        <attr name="neumorph_insetStart" />
+        <attr name="neumorph_insetEnd" />
+        <attr name="neumorph_insetTop" />
+        <attr name="neumorph_insetBottom" />
+        <attr name="neumorph_shadowElevation" />
+        <attr name="neumorph_shadowColorLight" />
+        <attr name="neumorph_shadowColorDark" />
+        <attr name="neumorph_shapeAppearance" />
+    </declare-styleable>
+
+    <attr name="neumorphFloatingActionButtonStyle" format="reference" />
+    <declare-styleable name="NeumorphFloatingActionButton">
+        <attr name="neumorph_backgroundColor" />
+        <attr name="neumorph_strokeColor" />
+        <attr name="neumorph_strokeWidth" />
+        <attr name="neumorph_lightSource" />
+        <attr name="neumorph_shapeType" />
+        <attr name="neumorph_inset" />
+        <attr name="neumorph_insetStart" />
+        <attr name="neumorph_insetEnd" />
+        <attr name="neumorph_insetTop" />
+        <attr name="neumorph_insetBottom" />
+        <attr name="neumorph_shadowElevation" />
+        <attr name="neumorph_shadowColorLight" />
+        <attr name="neumorph_shadowColorDark" />
+        <attr name="neumorph_shapeAppearance" />
+    </declare-styleable>
+
+    <attr name="neumorphImageViewStyle" format="reference" />
+    <declare-styleable name="NeumorphImageView">
+        <attr name="neumorph_backgroundColor" />
+        <attr name="neumorph_strokeColor" />
+        <attr name="neumorph_strokeWidth" />
+        <attr name="neumorph_lightSource" />
+        <attr name="neumorph_shapeType" />
+        <attr name="neumorph_inset" />
+        <attr name="neumorph_insetStart" />
+        <attr name="neumorph_insetEnd" />
+        <attr name="neumorph_insetTop" />
+        <attr name="neumorph_insetBottom" />
+        <attr name="neumorph_shadowElevation" />
+        <attr name="neumorph_shadowColorLight" />
+        <attr name="neumorph_shadowColorDark" />
+        <attr name="neumorph_shapeAppearance" />
+    </declare-styleable>
+
+    <attr name="neumorphImageButtonStyle" format="reference" />
+    <declare-styleable name="NeumorphImageButton">
+        <attr name="neumorph_backgroundColor" />
+        <attr name="neumorph_strokeColor" />
+        <attr name="neumorph_strokeWidth" />
+        <attr name="neumorph_lightSource" />
+        <attr name="neumorph_shapeType" />
+        <attr name="neumorph_inset" />
+        <attr name="neumorph_insetStart" />
+        <attr name="neumorph_insetEnd" />
+        <attr name="neumorph_insetTop" />
+        <attr name="neumorph_insetBottom" />
+        <attr name="neumorph_shadowElevation" />
+        <attr name="neumorph_shadowColorLight" />
+        <attr name="neumorph_shadowColorDark" />
+        <attr name="neumorph_shapeAppearance" />
+    </declare-styleable>
+
+    <attr name="neumorphTextViewStyle" format="reference" />
+    <declare-styleable name="NeumorphTextView">
+        <attr name="neumorph_shadowElevation" />
+        <attr name="neumorph_shadowColorLight" />
+        <attr name="neumorph_shadowColorDark" />
+    </declare-styleable>
+
+    <declare-styleable name="NeumorphShape">
+        <attr name="neumorph_shapeAppearance" />
+    </declare-styleable>
+
+    <declare-styleable name="NeumorphShapeAppearance">
+        <attr name="neumorph_cornerSize" format="dimension" />
+        <attr name="neumorph_cornerSizeTopLeft" format="dimension" />
+        <attr name="neumorph_cornerSizeTopRight" format="dimension" />
+        <attr name="neumorph_cornerSizeBottomLeft" format="dimension" />
+        <attr name="neumorph_cornerSizeBottomRight" format="dimension" />
+        <attr name="neumorph_cornerFamily" format="enum">
+            <enum name="rounded" value="0" />
+            <enum name="oval" value="1" />
+        </attr>
+    </declare-styleable>
+
+</resources>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/motionLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_default_color"
+    app:layoutDescription="@xml/drawer_scene"
+    app:showPaths="false">
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/imgBack"
+        android:layout_width="@dimen/home_btn_size"
+        android:layout_height="@dimen/home_btn_size"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/button_selector"
+        android:padding="20dp"
+        android:paddingVertical="4dp"
+        android:src="@drawable/ic_drawer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <soup.neumorphism.NeumorphCardView
+        android:id="@+id/llSearch"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/home_btn_size"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@id/imgBack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imgBack"
+        app:layout_constraintTop_toTopOf="@id/imgBack"
+        app:neumorph_backgroundColor="@color/bg_default_color"
+        app:neumorph_shadowElevation="4dp" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edtSearch"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@null"
+        android:fontFamily="sans-serif"
+        android:gravity="center_vertical"
+        android:hint="Search in All PDF"
+        android:paddingVertical="14dp"
+        android:paddingStart="24dp"
+        android:textColor="@color/unselected_text"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/llSearch"
+        app:layout_constraintEnd_toEndOf="@id/llSearch"
+        app:layout_constraintStart_toStartOf="@id/llSearch"
+        app:layout_constraintTop_toTopOf="@id/llSearch" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgSearch"
+        android:layout_width="@dimen/home_btn_size"
+        android:layout_height="@dimen/home_btn_size"
+        android:elevation="2dp"
+        android:padding="24dp"
+        android:src="@drawable/ic_search"
+        app:layout_constraintBottom_toBottomOf="@id/llSearch"
+        app:layout_constraintEnd_toEndOf="@id/llSearch"
+        app:layout_constraintTop_toTopOf="@id/llSearch" />
+
+    <LinearLayout
+        android:id="@+id/llDrawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/imgBack"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardBackgroundColor="@color/bg_default_color"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="8dp"
+            app:cardUseCompatPadding="true" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/llMain"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/llDrawer"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:text="Home"
+            android:textColor="@color/black"
+            android:textSize="48sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/imgRecents"
+        android:layout_width="@dimen/home_btn_size"
+        android:layout_height="@dimen/home_btn_size"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/button_selector"
+        android:padding="20dp"
+        android:src="@drawable/ic_recents"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/imgAllPdf" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/imgAllPdf"
+        android:layout_width="@dimen/home_btn_size"
+        android:layout_height="@dimen/home_btn_size"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/button_selector"
+        android:padding="20dp"
+        android:src="@drawable/ic_all"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/imgTools" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/imgTools"
+        android:layout_width="@dimen/home_btn_size"
+        android:layout_height="@dimen/home_btn_size"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/button_selector"
+        android:padding="20dp"
+        android:src="@drawable/ic_tools"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/imgFavourite" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/imgFavourite"
+        android:layout_width="@dimen/home_btn_size"
+        android:layout_height="@dimen/home_btn_size"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/button_selector"
+        android:padding="20dp"
+        android:src="@drawable/ic_favourite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

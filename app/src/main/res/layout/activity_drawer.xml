@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/motionLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_default_color"
+    app:layoutDescription="@xml/drawer_scene"
+    app:showPaths="false">
+
+    <RelativeLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:elevation="8dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgBack"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
+            android:paddingVertical="4dp"
+            app:srcCompat="@drawable/ic_drawer" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toEndOf="@id/imgBack"
+            android:fontFamily="sans-serif"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:text="PDF Reader"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/llDrawer"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_rounded_right_8"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RelativeLayout
+        android:id="@+id/llMain"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/llDrawer"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:text="Home"
+            android:textColor="@color/black"
+            android:textSize="48sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <soup.neumorphism.NeumorphImageButton
+        android:id="@+id/imgRecents"
+        style="@style/Widget.Neumorph.ImageButton"
+        android:layout_width="@dimen/home_btn_size"
+        android:layout_height="@dimen/home_btn_size"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/ic_recents"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/imgAllPdf"
+        app:neumorph_backgroundColor="@color/nm_btn_color"
+        app:neumorph_strokeColor="@color/stroke_color"
+        app:neumorph_strokeWidth="2dp" />
+
+    <soup.neumorphism.NeumorphImageButton
+        android:id="@+id/imgAllPdf"
+        style="@style/Widget.Neumorph.ImageButton"
+        android:layout_width="@dimen/home_btn_size"
+        android:layout_height="@dimen/home_btn_size"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/ic_all"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/imgTools"
+        app:neumorph_backgroundColor="@color/nm_btn_color"
+        app:neumorph_strokeColor="@color/stroke_color"
+        app:neumorph_strokeWidth="2dp" />
+
+    <soup.neumorphism.NeumorphImageButton
+        android:id="@+id/imgTools"
+        style="@style/Widget.Neumorph.ImageButton"
+        android:layout_width="@dimen/home_btn_size"
+        android:layout_height="@dimen/home_btn_size"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/ic_tools"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/imgFavourite"
+        app:neumorph_backgroundColor="@color/nm_btn_color"
+        app:neumorph_strokeColor="@color/stroke_color"
+        app:neumorph_strokeWidth="2dp" />
+
+    <soup.neumorphism.NeumorphImageButton
+        android:id="@+id/imgFavourite"
+        style="@style/Widget.Neumorph.ImageButton"
+        android:layout_width="@dimen/home_btn_size"
+        android:layout_height="@dimen/home_btn_size"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/ic_favourite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:neumorph_backgroundColor="@color/nm_btn_color"
+        app:neumorph_strokeColor="@color/stroke_color"
+        app:neumorph_strokeWidth="2dp" />
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

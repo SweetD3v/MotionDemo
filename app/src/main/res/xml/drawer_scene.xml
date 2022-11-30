@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@+id/start"
+        motion:duration="300"
+        motion:motionInterpolator="easeInOut">
+
+        <OnSwipe
+            motion:autoCompleteMode="spring"
+            motion:dragDirection="dragEnd"
+            motion:dragScale="1"
+            motion:dragThreshold="1"
+
+            motion:onTouchUp="autoComplete"
+            motion:springBoundary="bounceBoth"
+            motion:springDamping="70"
+            motion:springMass="1"
+            motion:springStiffness="750"
+            motion:springStopThreshold="5"
+
+            motion:touchAnchorId="@id/llMain"
+            motion:touchAnchorSide="end" />
+
+        <KeyFrameSet>
+            <KeyAttribute
+                android:alpha="0.4"
+                motion:framePosition="20"
+                motion:motionTarget="@id/imgRecents" />
+            <KeyAttribute
+                android:alpha="0.4"
+                motion:framePosition="20"
+                motion:motionTarget="@id/imgAllPdf" />
+            <KeyAttribute
+                android:alpha="0.4"
+                motion:framePosition="20"
+                motion:motionTarget="@id/imgTools" />
+            <KeyAttribute
+                android:alpha="0.8"
+                motion:framePosition="20"
+                motion:motionTarget="@id/edtSearch" />
+            <KeyAttribute
+                android:alpha="0.8"
+                motion:framePosition="20"
+                motion:motionTarget="@id/llSearch" />
+            <KeyAttribute
+                android:alpha="0.0"
+                motion:framePosition="20"
+                motion:motionTarget="@id/imgSearch" />
+
+            <KeyAttribute
+                android:alpha="0.3"
+                motion:framePosition="30"
+                motion:motionTarget="@id/imgRecents" />
+            <KeyAttribute
+                android:alpha="0.2"
+                motion:framePosition="30"
+                motion:motionTarget="@id/imgAllPdf" />
+            <KeyAttribute
+                android:alpha="0.2"
+                motion:framePosition="30"
+                motion:motionTarget="@id/imgTools" />
+
+            <KeyAttribute
+                android:alpha="0.1"
+                motion:framePosition="40"
+                motion:motionTarget="@id/imgRecents" />
+            <KeyAttribute
+                android:alpha="0.1"
+                motion:framePosition="40"
+                motion:motionTarget="@id/imgAllPdf" />
+            <KeyAttribute
+                android:alpha="0.1"
+                motion:framePosition="40"
+                motion:motionTarget="@id/imgTools" />
+            <KeyAttribute
+                android:alpha="0.2"
+                motion:framePosition="40"
+                motion:motionTarget="@id/edtSearch" />
+            <KeyAttribute
+                android:alpha="0.0"
+                motion:framePosition="50"
+                motion:motionTarget="@id/llSearch" />
+            <KeyAttribute
+                android:alpha="0.2"
+                motion:framePosition="40"
+                motion:motionTarget="@id/imgSearch" />
+
+            <KeyAttribute
+                android:alpha="0.2"
+                motion:framePosition="75"
+                motion:motionTarget="@id/imgRecents" />
+            <KeyAttribute
+                android:alpha="0.2"
+                motion:framePosition="75"
+                motion:motionTarget="@id/imgAllPdf" />
+            <KeyAttribute
+                android:alpha="0.2"
+                motion:framePosition="75"
+                motion:motionTarget="@id/imgTools" />
+            <KeyAttribute
+                android:alpha="0.0"
+                motion:framePosition="75"
+                motion:motionTarget="@id/edtSearch" />
+            <KeyAttribute
+                android:alpha="0.5"
+                motion:framePosition="75"
+                motion:motionTarget="@id/llSearch" />
+            <KeyAttribute
+                android:alpha="0.5"
+                motion:framePosition="75"
+                motion:motionTarget="@id/imgSearch" />
+
+            <KeyAttribute
+                android:alpha="0.3"
+                motion:framePosition="80"
+                motion:motionTarget="@id/imgRecents" />
+            <KeyAttribute
+                android:alpha="0.3"
+                motion:framePosition="80"
+                motion:motionTarget="@id/imgAllPdf" />
+            <KeyAttribute
+                android:alpha="0.3"
+                motion:framePosition="80"
+                motion:motionTarget="@id/imgTools" />
+            <KeyAttribute
+                android:alpha="0.0"
+                motion:framePosition="80"
+                motion:motionTarget="@id/edtSearch" />
+            <KeyAttribute
+                android:alpha="0.75"
+                motion:framePosition="80"
+                motion:motionTarget="@id/llSearch" />
+            <KeyAttribute
+                android:alpha="0.75"
+                motion:framePosition="80"
+                motion:motionTarget="@id/imgSearch" />
+
+            <KeyAttribute
+                android:alpha="0.4"
+                motion:framePosition="85"
+                motion:motionTarget="@id/imgRecents" />
+            <KeyAttribute
+                android:alpha="0.4"
+                motion:framePosition="85"
+                motion:motionTarget="@id/imgAllPdf" />
+            <KeyAttribute
+                android:alpha="0.4"
+                motion:framePosition="85"
+                motion:motionTarget="@id/imgTools" />
+
+            <KeyAttribute
+                android:alpha="0.5"
+                motion:framePosition="90"
+                motion:motionTarget="@id/imgRecents" />
+            <KeyAttribute
+                android:alpha="0.5"
+                motion:framePosition="90"
+                motion:motionTarget="@id/imgAllPdf" />
+            <KeyAttribute
+                android:alpha="0.5"
+                motion:framePosition="90"
+                motion:motionTarget="@id/imgTools" />
+            <!--            <KeyAttribute-->
+            <!--                android:alpha="0.0"-->
+            <!--                motion:framePosition="90"-->
+            <!--                motion:motionTarget="@id/edtSearch" />-->
+            <KeyAttribute
+                android:alpha="1.0"
+                motion:framePosition="90"
+                motion:motionTarget="@id/imgSearch" />
+
+            <KeyAttribute
+                android:alpha="1.0"
+                motion:framePosition="95"
+                motion:motionTarget="@id/imgRecents" />
+            <KeyAttribute
+                android:alpha="1.0"
+                motion:framePosition="95"
+                motion:motionTarget="@id/imgAllPdf" />
+            <KeyAttribute
+                android:alpha="1.0"
+                motion:framePosition="95"
+                motion:motionTarget="@id/imgTools" />
+        </KeyFrameSet>
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+
+        <Constraint
+            android:id="@+id/imgBack"
+            android:layout_width="@dimen/home_btn_size"
+            android:layout_height="@dimen/home_btn_size"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:padding="20dp"
+            android:paddingVertical="4dp"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@+id/llSearch"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/home_btn_size"
+            android:layout_marginEnd="8dp"
+            motion:layout_constraintBottom_toBottomOf="@id/imgBack"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toEndOf="@id/imgBack"
+            motion:layout_constraintTop_toTopOf="@id/imgBack" />
+
+        <Constraint
+            android:id="@+id/edtSearch"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@null"
+            android:fontFamily="sans-serif"
+            android:gravity="center_vertical"
+            android:hint="Search in All PDF"
+            android:paddingVertical="14dp"
+            android:paddingStart="24dp"
+            android:textColor="@color/unselected_text"
+            android:textSize="16sp"
+            motion:layout_constraintBottom_toBottomOf="@id/llSearch"
+            motion:layout_constraintEnd_toEndOf="@id/llSearch"
+            motion:layout_constraintStart_toStartOf="@id/llSearch"
+            motion:layout_constraintTop_toTopOf="@id/llSearch">
+            <PropertySet
+                android:alpha="1.0"
+                android:visibility="visible" />
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/imgSearch"
+            android:layout_width="@dimen/home_btn_size"
+            android:layout_height="@dimen/home_btn_size"
+            android:elevation="2dp"
+            android:padding="24dp"
+            android:src="@drawable/ic_search"
+            motion:layout_constraintBottom_toBottomOf="@id/llSearch"
+            motion:layout_constraintEnd_toEndOf="@id/llSearch"
+            motion:layout_constraintTop_toTopOf="@id/llSearch">
+            <PropertySet
+                android:alpha="0.0"
+                android:visibility="gone" />
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/llDrawer"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:orientation="vertical"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toStartOf="@id/imgBack"
+            motion:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@+id/llMain"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintStart_toEndOf="@id/llDrawer"
+            motion:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@+id/imgRecents"
+            android:layout_width="@dimen/home_btn_size"
+            android:layout_height="@dimen/home_btn_size"
+            android:layout_marginBottom="8dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toStartOf="@id/imgAllPdf" />
+
+        <Constraint
+            android:id="@+id/imgAllPdf"
+            android:layout_width="@dimen/home_btn_size"
+            android:layout_height="@dimen/home_btn_size"
+            android:layout_marginBottom="8dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toStartOf="@id/imgTools" />
+
+        <Constraint
+            android:id="@+id/imgTools"
+            android:layout_width="@dimen/home_btn_size"
+            android:layout_height="@dimen/home_btn_size"
+            android:layout_marginBottom="8dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toStartOf="@id/imgFavourite" />
+
+        <Constraint
+            android:id="@+id/imgFavourite"
+            android:layout_width="@dimen/home_btn_size"
+            android:layout_height="@dimen/home_btn_size"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+
+        <Constraint
+            android:id="@+id/imgBack"
+            android:layout_width="@dimen/home_btn_size"
+            android:layout_height="@dimen/home_btn_size"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:padding="20dp"
+            android:paddingVertical="4dp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@+id/llSearch"
+            android:layout_width="@dimen/home_btn_size"
+            android:layout_height="@dimen/home_btn_size"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintTop_toBottomOf="@id/imgBack" />
+
+        <Constraint
+            android:id="@+id/edtSearch"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@null"
+            android:fontFamily="sans-serif"
+            android:gravity="center_vertical"
+            android:hint="Search in All PDF"
+            android:paddingVertical="14dp"
+            android:paddingStart="24dp"
+            android:textColor="@color/unselected_text"
+            android:textSize="16sp"
+            motion:layout_constraintBottom_toBottomOf="@id/llSearch"
+            motion:layout_constraintEnd_toEndOf="@id/llSearch"
+            motion:layout_constraintStart_toStartOf="@id/llSearch"
+            motion:layout_constraintTop_toTopOf="@id/llSearch">
+            <PropertySet
+                android:alpha="0.0"
+                android:visibility="gone" />
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/imgSearch"
+            android:layout_width="@dimen/home_btn_size"
+            android:layout_height="@dimen/home_btn_size"
+            android:elevation="2dp"
+            android:padding="24dp"
+            android:src="@drawable/ic_search"
+            motion:layout_constraintBottom_toBottomOf="@id/llSearch"
+            motion:layout_constraintEnd_toEndOf="@id/llSearch"
+            motion:layout_constraintTop_toTopOf="@id/llSearch">
+            <PropertySet
+                android:alpha="1.0"
+                android:visibility="visible" />
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/llDrawer"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:orientation="vertical"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toStartOf="@id/imgBack"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@+id/llMain"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintStart_toEndOf="@id/llDrawer"
+            motion:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@+id/imgRecents"
+            android:layout_width="@dimen/home_btn_size"
+            android:layout_height="@dimen/home_btn_size"
+            motion:layout_constraintBottom_toTopOf="@id/imgAllPdf"
+            motion:layout_constraintEnd_toEndOf="@id/imgAllPdf"
+            motion:layout_constraintStart_toStartOf="@id/imgAllPdf" />
+
+        <Constraint
+            android:id="@+id/imgAllPdf"
+            android:layout_width="@dimen/home_btn_size"
+            android:layout_height="@dimen/home_btn_size"
+            motion:layout_constraintBottom_toTopOf="@id/imgTools"
+            motion:layout_constraintEnd_toEndOf="@id/imgTools"
+            motion:layout_constraintStart_toStartOf="@id/imgTools" />
+
+        <Constraint
+            android:id="@+id/imgTools"
+            android:layout_width="@dimen/home_btn_size"
+            android:layout_height="@dimen/home_btn_size"
+            motion:layout_constraintBottom_toTopOf="@id/imgFavourite"
+            motion:layout_constraintEnd_toEndOf="@id/imgFavourite"
+            motion:layout_constraintStart_toStartOf="@id/imgFavourite" />
+
+        <Constraint
+            android:id="@+id/imgFavourite"
+            android:layout_width="@dimen/home_btn_size"
+            android:layout_height="@dimen/home_btn_size"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent" />
+    </ConstraintSet>
+</MotionScene>
