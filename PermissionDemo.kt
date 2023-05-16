@@ -37,6 +37,8 @@ abstract class LocationHelperActivity : AppCompatActivity() {
         Manifest.permission.ACCESS_FINE_LOCATION,
         Manifest.permission.ACCESS_COARSE_LOCATION
     )
+    
+    private var isMandatory: Boolean? = true
     private var askCount = 0
 
     val permissionsLauncher =
@@ -48,8 +50,13 @@ abstract class LocationHelperActivity : AppCompatActivity() {
                     shouldShowRequestPermissionRationale(locationPermissions.first())
                     && shouldShowRequestPermissionRationale(locationPermissions.last())
                 ) {
-                    askForLocationPermission()
+                    if (isMandatory == true) {
+                        askCount++
+                        askForLocationPermission()
+                    }
                 } else {
+                    if (isMandatory == true)
+                        askCount = 2
                     showSettingsDialog()
                 }
             } else {
@@ -100,8 +107,10 @@ abstract class LocationHelperActivity : AppCompatActivity() {
                 }
 
                 Activity.RESULT_CANCELED -> {
-                    shownGPSDialog = false
-                    enableGPS()
+                    if (isMandatory == true) {
+                        shownGPSDialog = false
+                        enableGPS()
+                    }
                 }
 
                 else -> {
@@ -160,6 +169,10 @@ abstract class LocationHelperActivity : AppCompatActivity() {
             }
     }
 
+    fun alwaysAskPermissions(isMandatory: Boolean? = true) {
+        this.isMandatory = isMandatory
+    }
+    
     private fun getUserLocation() {
         if (!locationPermissionGranted()) {
             jobLocation?.cancel()
