@@ -46,18 +46,6 @@ class BillingHelper(
         }
 
         ioScope.launch {
-            val queryProductDetailsParams = QueryProductDetailsParams.newBuilder()
-                .setProductList(
-                    mutableListOf(
-                        Product.newBuilder()
-                            .setProductId(productId)
-                            .setProductType(
-                                BillingClient.ProductType.INAPP
-                            )
-                            .build()
-                    )
-                ).build()
-
             val purchaseListener = PurchasesUpdatedListener { billingResult, purchaseList ->
                 if (billingResult.responseCode == BillingResponseCode.OK
                     && !purchaseList.isNullOrEmpty()
@@ -73,10 +61,6 @@ class BillingHelper(
                 } else if (billingResult.responseCode == BillingResponseCode.USER_CANCELED) {
                     ensureMainThread {
                         billingStateListener?.onPurchaseFailed()
-                    }
-                } else {
-                    ensureMainThread {
-                        billingStateListener?.onProductsAlreadyPurchased(purchaseList?.first())
                     }
                 }
             }
@@ -94,72 +78,96 @@ class BillingHelper(
 
                     override fun onBillingSetupFinished(billingResult: BillingResult) {
                         if (billingResult.responseCode == BillingResponseCode.OK) {
-                            val purchasesParams = QueryPurchasesParams.newBuilder()
-                                .setProductType(BillingClient.ProductType.INAPP).build()
-                            bc.queryPurchasesAsync(
-                                purchasesParams
-                            ) { billingResult12: BillingResult, purchasesList: List<Purchase?> ->
-                                val responseCode = billingResult12.responseCode
-                                if (bc.isReady) {
-                                    if (responseCode == BillingResponseCode.OK) {
-                                        val skuList = ArrayList<String>()
-                                        val productList: MutableList<Product> = ArrayList()
-
-                                        if (purchasesList.isNotEmpty()) {
-                                            for (i in purchasesList.indices) {
-                                                skuList.add(purchasesList[i]?.products?.get(0)!!)
-                                            }
-                                            for (i in skuList.indices) {
-                                                val product = Product.newBuilder()
-                                                    .setProductId(skuList[i])
-                                                    .setProductType(BillingClient.ProductType.INAPP)
-                                                    .build()
-                                                productList.add(product)
-                                            }
-                                        }
-
-                                        if (productList.isEmpty()) {
-                                            val product = Product.newBuilder()
-                                                .setProductId(productId)
-                                                .setProductType(BillingClient.ProductType.INAPP)
-                                                .build()
-                                            productList.add(product)
-                                        }
-                                    }
-                                }
-                            }
-
-                            bc.queryProductDetailsAsync(queryProductDetailsParams) { billingRes, productDetailsList ->
-                                val responseCode1 = billingRes.responseCode
-                                if (responseCode1 == BillingResponseCode.OK) {
-                                    if (productDetailsList.isNotEmpty()) {
-                                        val productDetails = productDetailsList.first()
-                                        this@BillingHelper.productDetailsList =
-                                            productDetailsList
-                                        val productInfo = ProductInfo(
-                                            productId = productDetails.productId,
-                                            productTitle = productDetails.title,
-                                            price = productDetails?.oneTimePurchaseOfferDetails?.formattedPrice
-                                                ?: ""
-                                        )
-
-                                        ensureMainThread {
-                                            billingStateListener?.onProductAvailable(productInfo)
-                                        }
-                                    } else {
-                                        ensureMainThread {
-                                            billingStateListener?.onPurchaseFailed()
-                                        }
-                                    }
-                                } else {
-                                    ensureMainThread {
-                                        billingStateListener?.onQueryProductFailed()
-                                    }
-                                }
-                            }
+                            queryPurchaseAsync(bc)
+                            queryDetailsAsync(bc, productId)
                         }
                     }
                 })
+            }
+        }
+    }
+
+    private fun queryDetailsAsync(
+        bc: BillingClient,
+        productId: String
+    ) {
+        val queryProductDetailsParams = QueryProductDetailsParams.newBuilder()
+            .setProductList(
+                mutableListOf(
+                    Product.newBuilder()
+                        .setProductId(productId)
+                        .setProductType(
+                            BillingClient.ProductType.INAPP
+                        )
+                        .build()
+                )
+            ).build()
+
+        bc.queryProductDetailsAsync(queryProductDetailsParams) { billingRes, productDetailsList ->
+            val responseCode1 = billingRes.responseCode
+            if (responseCode1 == BillingResponseCode.OK) {
+                if (productDetailsList.isNotEmpty()) {
+                    val productDetails = productDetailsList.first()
+                    this@BillingHelper.productDetailsList =
+                        productDetailsList
+                    val productInfo = ProductInfo(
+                        productId = productDetails.productId,
+                        productTitle = productDetails.title,
+                        price = productDetails?.oneTimePurchaseOfferDetails?.formattedPrice
+                            ?: ""
+                    )
+
+                    ensureMainThread {
+                        billingStateListener?.onProductAvailable(productInfo)
+                    }
+                } else {
+                    ensureMainThread {
+                        billingStateListener?.onPurchaseFailed()
+                    }
+                }
+            } else {
+                ensureMainThread {
+                    billingStateListener?.onQueryProductFailed()
+                }
+            }
+        }
+    }
+
+    private fun queryPurchaseAsync(
+        bc: BillingClient
+    ) {
+        val purchasesParams = QueryPurchasesParams.newBuilder()
+            .setProductType(BillingClient.ProductType.INAPP).build()
+
+        bc.queryPurchasesAsync(
+            purchasesParams
+        ) { billingResult12: BillingResult, purchasesList: List<Purchase?> ->
+            val responseCode = billingResult12.responseCode
+            if (bc.isReady) {
+                if (responseCode == BillingResponseCode.OK) {
+                    val skuList = ArrayList<String>()
+                    val productList: MutableList<Product> = ArrayList()
+
+                    if (purchasesList.isNotEmpty()) {
+                        for (i in purchasesList.indices) {
+                            val purchaseItem = purchasesList[i]
+                            purchaseItem?.let { purchase ->
+                                skuList.add(purchase.products.first())
+                                handleItemAlreadyPurchase(purchase)
+                                billingStateListener?.onProductsAlreadyPurchased(purchase)
+                            }
+                        }
+                        for (i in skuList.indices) {
+                            val product = Product.newBuilder()
+                                .setProductId(skuList[i])
+                                .setProductType(BillingClient.ProductType.INAPP)
+                                .build()
+                            productList.add(product)
+                        }
+                    }
+                }
+            } else {
+                billingStateListener?.onConnectionFailed()
             }
         }
     }
@@ -197,9 +205,7 @@ class BillingHelper(
             .newBuilder()
             .setProductDetailsParamsList(paramsList)
             .build()
-        val response = billingClient.launchBillingFlow(activity, billingFlowParams)
-            .responseCode
-        when (response) {
+        when (billingClient.launchBillingFlow(activity, billingFlowParams).responseCode) {
             BillingResponseCode.USER_CANCELED, BillingResponseCode.BILLING_UNAVAILABLE, BillingResponseCode.DEVELOPER_ERROR, BillingResponseCode.FEATURE_NOT_SUPPORTED, BillingResponseCode.ITEM_ALREADY_OWNED, BillingResponseCode.SERVICE_DISCONNECTED, BillingResponseCode.SERVICE_TIMEOUT,
             BillingResponseCode.ITEM_UNAVAILABLE ->
                 billingStateListener?.onPurchaseFailed()
@@ -224,7 +230,6 @@ class BillingHelper(
                             }
                         }
                     }
-
                 }
             } else {
                 ensureMainThread {
@@ -256,6 +261,8 @@ class BillingHelper(
     fun cancelPurchaseJob() {
         jobPurchase.cancel()
     }
+
+    fun isChecking() = jobPurchase.isActive
 
     interface BillingStateListener {
         fun onProductsAlreadyPurchased(purchase: Purchase?)
