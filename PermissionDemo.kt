@@ -331,3 +331,23 @@ public class GPS {
         return sb.toString();
     }
 }
+
+
+
+
+
+
+
+
+private fun deleteFolder(deleteFile: File) {
+        val documentFile = DocumentFile.fromTreeUri(ctx, fileDocPath.uri.toString().toUri())
+        if (documentFile != null) {
+            val documentFiles = documentFile.listFiles()
+            for (file in documentFiles) {
+                if (file.name == deleteFile.name) {
+                    file.delete()
+                    break
+                }
+            }
+        }
+    }
