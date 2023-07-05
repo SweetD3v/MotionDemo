@@ -290,3 +290,27 @@ fun ensureMainThread(callback: () -> Unit) {
 }
 
 fun isOnMainThread() = Looper.myLooper() == Looper.getMainLooper()
+
+
+
+
+
+
+
+
+
+lm.spanSizeLookup = SpannedGridLayoutManager.SpanSizeLookup { position ->
+            when (position % 80) {
+                5, 22 ->
+                    SpanSize(2, 2)
+
+                35, 45 ->
+                    SpanSize(3, 3)
+
+                52, 70 ->
+                    SpanSize(2, 2)
+
+                else ->
+                    SpanSize(1, 1)
+            }
+        }
