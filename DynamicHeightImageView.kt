@@ -68,3 +68,66 @@ class DynamicHeightImageView : ShapeableImageView {
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+    fun toggleSelection(pos: Int) {
+        val currentList = listDiffer.currentList
+        if (selected.contains(pos) && currentList[pos].gridType == MEDIAGRIDTYPE.TYPE_IMAGE) {
+            selected.remove(pos)
+        } else if (currentList[pos].gridType == MEDIAGRIDTYPE.TYPE_IMAGE) {
+            selected.add(pos)
+        }
+        notifyItemChanged(pos)
+        isSelecting = selected.size > 0
+    }
+
+    fun selectRange(start: Int, end: Int, selected: Boolean) {
+        val currentList = listDiffer.currentList
+        for (i in start..end) {
+            if (selected && currentList[i].gridType == MEDIAGRIDTYPE.TYPE_IMAGE) {
+                this.selected.add(i)
+            } else {
+                this.selected.remove(i)
+            }
+        }
+
+        notifyItemRangeChanged(start, end - start + 1)
+    }
+
+    fun deselectAll() {
+        selected.clear()
+        isSelecting = false
+        notifyDataSetChanged()
+    }
+
+    fun selectAll() {
+        isSelecting = true
+        val currentList = listDiffer.currentList
+        for (i in 0 until currentList.size) {
+            if (currentList[i].gridType == MEDIAGRIDTYPE.TYPE_IMAGE) {
+                selected.add(i)
+            }
+        }
+        notifyDataSetChanged()
+    }
+
+    fun getCountSelected(): Int {
+        return selected.size
+    }
+
+    fun getSelectionMedia(): MutableList<MediaTimeLine> {
+        return listDiffer.currentList.slice(selected).toMutableList()
+    }
+
+    override fun onChange(position: Int): CharSequence {
+        var realIndex = position
+        if (isTitleDate(position)) {
+            realIndex++
+        }
+        return listDiffer.currentList[realIndex].date.convertToDDMMMMYYYY()
+    }
