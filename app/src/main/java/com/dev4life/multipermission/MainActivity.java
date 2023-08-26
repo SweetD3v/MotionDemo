@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
 
         permissionsList = new ArrayList<>();
         permissionsList.addAll(Arrays.asList(permissionsStr));
-        askForPermissions(permissionsList);
+//        askForPermissions(permissionsList);
 
         binding.view1.setOnClickListener(v -> {
             binding.motionLayout.transitionToState(R.id.initial,

@@ -15,6 +15,6 @@ dependencyResolutionManagement {
         }
     }
 }
-rootProject.name = "PermissionsDemo"
+rootProject.name = "MotionDemo"
 include ':app'
 include ':neumorphism'
