@@ -9,14 +9,13 @@
     <TextView
         android:id="@+id/txtStatus"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:fontFamily="monospace"
         android:gravity="center"
-        android:padding="16dp"
-        android:text="Asking for permissions"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:visibility="gone" />
+        android:text="Motion Demo"
+        android:textColor="@color/black"
+        android:textSize="36sp"
+        android:textStyle="bold" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -33,7 +32,7 @@
                 android:id="@+id/refView"
                 android:layout_width="match_parent"
                 android:layout_height="3dp"
-                android:layout_marginBottom="56dp"
+                android:layout_marginBottom="64dp"
                 android:background="@drawable/top_shadow"
                 app:layout_constraintBottom_toBottomOf="parent" />
 
@@ -54,10 +53,22 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:background="?selectableItemBackgroundBorderless"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@id/txt1"
                 app:layout_constraintEnd_toEndOf="@id/txt1"
                 app:layout_constraintStart_toStartOf="@id/txt1"
                 app:layout_constraintTop_toTopOf="@id/img1" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/btn1"
+                android:layout_width="64dp"
+                android:layout_height="0dp"
+                android:layout_marginVertical="8dp"
+                android:background="@drawable/ripple_bg_circle_blackish_transp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/img1"
+                app:layout_constraintStart_toStartOf="@id/img1"
+                app:layout_constraintTop_toTopOf="@id/refView" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/img1"
@@ -81,17 +92,31 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/txt2"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.9" />
 
             <View
                 android:id="@+id/view2"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:background="?selectableItemBackgroundBorderless"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@id/txt2"
                 app:layout_constraintEnd_toEndOf="@id/txt2"
                 app:layout_constraintStart_toStartOf="@id/txt2"
                 app:layout_constraintTop_toTopOf="@id/img2" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/btn2"
+                android:layout_width="64dp"
+                android:layout_height="0dp"
+                android:layout_marginVertical="8dp"
+                android:background="@drawable/ripple_bg_circle_blackish_transp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/img2"
+                app:layout_constraintStart_toStartOf="@id/img2"
+                app:layout_constraintTop_toTopOf="@id/refView" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/img2"
@@ -112,17 +137,31 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/txt3"
-                app:layout_constraintStart_toEndOf="@id/txt1" />
+                app:layout_constraintStart_toEndOf="@id/txt1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.9" />
 
             <View
                 android:id="@+id/view3"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:background="?selectableItemBackgroundBorderless"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@id/txt3"
                 app:layout_constraintEnd_toEndOf="@id/txt3"
                 app:layout_constraintStart_toStartOf="@id/txt3"
                 app:layout_constraintTop_toTopOf="@id/img3" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/btn3"
+                android:layout_width="64dp"
+                android:layout_height="0dp"
+                android:layout_marginVertical="8dp"
+                android:background="@drawable/ripple_bg_circle_blackish_transp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/img3"
+                app:layout_constraintStart_toStartOf="@id/img3"
+                app:layout_constraintTop_toTopOf="@id/refView" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/img3"
@@ -143,17 +182,31 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/txt4"
-                app:layout_constraintStart_toEndOf="@id/txt2" />
+                app:layout_constraintStart_toEndOf="@id/txt2"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.9" />
 
             <View
                 android:id="@+id/view4"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:background="?selectableItemBackgroundBorderless"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@id/txt4"
                 app:layout_constraintEnd_toEndOf="@id/txt4"
                 app:layout_constraintStart_toStartOf="@id/txt4"
                 app:layout_constraintTop_toTopOf="@id/img4" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/btn4"
+                android:layout_width="64dp"
+                android:layout_height="0dp"
+                android:layout_marginVertical="8dp"
+                android:background="@drawable/ripple_bg_circle_blackish_transp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/img4"
+                app:layout_constraintStart_toStartOf="@id/img4"
+                app:layout_constraintTop_toTopOf="@id/refView" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/img4"
@@ -174,7 +227,9 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/txt3" />
+                app:layout_constraintStart_toEndOf="@id/txt3"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.9" />
         </androidx.constraintlayout.motion.widget.MotionLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </RelativeLayout>
