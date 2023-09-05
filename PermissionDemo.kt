@@ -622,3 +622,11 @@ public class RoundWaveView extends View {
     }
 
 }
+
+
+
+
+<declare-styleable name="RoundWaveView">
+        <attr name="pointCount" format="integer" />
+        <attr name="useAnimation" format="boolean" />
+    </declare-styleable>
