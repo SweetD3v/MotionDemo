@@ -630,3 +630,41 @@ public class RoundWaveView extends View {
         <attr name="pointCount" format="integer" />
         <attr name="useAnimation" format="boolean" />
     </declare-styleable>
+
+
+
+
+
+
+    fun Activity.setAsIntent(path: String, applicationId: String) {
+    ensureBackgroundThread {
+        val newUri = getFinalUriFromPath(path, applicationId) ?: return@ensureBackgroundThread
+        Intent().apply {
+            action = Intent.ACTION_ATTACH_DATA
+            setDataAndType(newUri, getUriMimeType(path, newUri))
+            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            val chooser =
+                Intent.createChooser(this, getString(com.simplemobiletools.commons.R.string.set_as))
+
+            try {
+                startActivityForResult(chooser, REQUEST_SET_AS)
+            } catch (e: ActivityNotFoundException) {
+                toast(com.simplemobiletools.commons.R.string.no_app_found)
+            } catch (e: Exception) {
+                showErrorToast(e)
+            }
+        }
+    }
+}
+
+fun isOnMainThread() = Looper.myLooper() == Looper.getMainLooper()
+
+fun ensureBackgroundThread(callback: () -> Unit) {
+    if (isOnMainThread()) {
+        Thread {
+            callback()
+        }.start()
+    } else {
+        callback()
+    }
+}
