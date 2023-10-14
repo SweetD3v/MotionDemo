@@ -668,3 +668,48 @@ fun ensureBackgroundThread(callback: () -> Unit) {
         callback()
     }
 }
+
+
+
+
+private fun hasManageFilesPermissionHistory(): Boolean {
+        val appOps = getSystemService(APP_OPS_SERVICE) as AppOpsManager
+        val mode = appOps.checkOpNoThrow(
+            AppOpsManager.OPSTR_GET_USAGE_STATS,
+            Process.myUid(), packageName
+        )
+        if (mode == AppOpsManager.MODE_ALLOWED) {
+            return true
+        }
+        appOps.startWatchingMode(AppOpsManager.OPSTR_GET_USAGE_STATS,
+            applicationContext.packageName,
+            object : AppOpsManager.OnOpChangedListener {
+                override fun onOpChanged(op: String, packageName: String) {
+                    val mode1 = appOps.checkOpNoThrow(
+                        "android:manage_external_storage",
+                        Process.myUid(), getPackageName()
+                    )
+                    if (mode1 != AppOpsManager.MODE_ALLOWED) {
+                        return
+                    }
+                    appOps.stopWatchingMode(this)
+                    val intent = Intent(this@MainActivity, MainActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                    applicationContext.startActivity(intent)
+                }
+            })
+        if (isRPlus())
+            requestManageFilesAccess()
+        return false
+    }
+
+    @RequiresApi(Build.VERSION_CODES.R)
+    private fun requestManageFilesAccess() {
+        if (!Environment.isExternalStorageManager())
+            storagePermissionResultLauncher.launch(
+                Intent(
+                    Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION,
+                    Uri.parse("package:$packageName")
+                )
+            )
+    }
