@@ -672,24 +672,24 @@ fun ensureBackgroundThread(callback: () -> Unit) {
 
 
 
-private fun hasManageFilesPermissionHistory(): Boolean {
+private fun manageFilesPermissions(): Boolean {
         val appOps = getSystemService(APP_OPS_SERVICE) as AppOpsManager
         val mode = appOps.checkOpNoThrow(
-            AppOpsManager.OPSTR_GET_USAGE_STATS,
+            "android:manage_external_storage",
             Process.myUid(), packageName
         )
         if (mode == AppOpsManager.MODE_ALLOWED) {
             return true
         }
-        appOps.startWatchingMode(AppOpsManager.OPSTR_GET_USAGE_STATS,
+        appOps.startWatchingMode("android:manage_external_storage",
             applicationContext.packageName,
             object : AppOpsManager.OnOpChangedListener {
                 override fun onOpChanged(op: String, packageName: String) {
-                    val mode1 = appOps.checkOpNoThrow(
+                    val modeStatus = appOps.checkOpNoThrow(
                         "android:manage_external_storage",
                         Process.myUid(), getPackageName()
                     )
-                    if (mode1 != AppOpsManager.MODE_ALLOWED) {
+                    if (modeStatus != AppOpsManager.MODE_ALLOWED) {
                         return
                     }
                     appOps.stopWatchingMode(this)
