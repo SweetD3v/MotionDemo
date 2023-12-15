@@ -45,7 +45,7 @@ abstract class LocationHelperActivity : AppCompatActivity() {
         registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { grantRes ->
             val granted = !grantRes.values.contains(false)
             if (!granted) {
-                askCount++
+                // askCount++
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
                     shouldShowRequestPermissionRationale(locationPermissions.first())
                     && shouldShowRequestPermissionRationale(locationPermissions.last())
