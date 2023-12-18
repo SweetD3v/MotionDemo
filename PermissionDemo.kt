@@ -713,3 +713,87 @@ private fun manageFilesPermissions(): Boolean {
                 )
             )
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    import kotlin.math.pow
+import kotlin.math.sqrt
+
+object TastyTest {
+    var colors = arrayOf(
+        "ff0000",
+        "00ff00",
+        "0000ff",
+        "ffffff",
+        "000000",
+        "27b69d",
+        "23a68f",
+        "1aa48c",
+        "17846f",
+        "0f8b7d",
+        "0e7e72",
+        "0a876e",
+        "097b64",
+        "0a584d",
+        "095046",
+        "7e888e",
+        "737c81",
+        "383d40",
+        "018391",
+        "017784",
+        "fffee8",
+        "ffb661",
+        "fafafa",
+        "e8e8e8",
+        "d8d8d8",
+        "e7f5f3",
+        "5d6468",
+        "4c5256"
+    )
+
+    @JvmStatic
+    fun main(args: Array<String>) {
+        submit("3700B3")
+    }
+
+    fun submit(newColor: String) {
+        val res = colors.map { getDiffColor(it, newColor) }
+        val closestColors = colors.filter { it == colors[res.indexOf(res.minOrNull())] }
+        colors = closestColors.toTypedArray()
+        println("closestColor: $closestColors")
+    }
+
+    fun hexToRgb(hex: String): RGB {
+        val result =
+            Regex(
+                "^#?([a-f\\d]{2})([a-f\\d]{2})([a-f\\d]{2})$",
+                RegexOption.IGNORE_CASE
+            ).matchEntire(
+                hex
+            )
+        return result?.destructured?.let { (r, g, b) ->
+            RGB(r.toInt(16), g.toInt(16), b.toInt(16))
+        } ?: RGB(0, 0, 0)
+    }
+
+    fun getDiffColor(cola: String, colb: String): Double {
+        val a = hexToRgb(cola)
+        val b = hexToRgb(colb)
+        return sqrt(
+            (a.r - b.r).toDouble().pow(2) + (a.g - b.g).toDouble().pow(2) + (a.b - b.b).toDouble()
+                .pow(2)
+        )
+    }
+
+    data class RGB(val r: Int, val g: Int, val b: Int)
+}
